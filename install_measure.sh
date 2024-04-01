@@ -373,7 +373,7 @@ EOL
 envInit(){
     # 下载项目文件
     scriptsLog 1 "download project file"
-    downloadFile $softUrl/tools/ipolloML/ipvRunner.tar.gz "$home"  "ipvRunner.tar.gz" "progressTrue"
+    downloadFile $softUrl/tools/ngpuML/ipvRunner.tar.gz "$home"  "ipvRunner.tar.gz" "progressTrue"
 
     # 安装 jq 用于处理 JSON 数据
     downloadFile $softUrl/tools/jq "$home/ipvRunner/Bin/"  "jq"
@@ -558,15 +558,15 @@ node_exporter() {
      createProject node_exporter
 }
 
-# 功能:安装节点ipollo监听服务
-ipollo_exporter() {
-    scriptsLog 1 "start configure ipollo_exporter "
+# 功能:安装节点监听服务
+id_exporter() {
+    scriptsLog 1 "start configure id_exporter "
 	if [ -f "$home/ipvRunner/nodeAddress" ]; then 
 		rm -f "$home/ipvRunner/nodeAddress"
 	fi
 	echo ${nodeAddr} > $home/ipvRunner/nodeAddress
-    # 创建 ipollo_exporter 项目的 systemd 服务
-    createProject ipollo_exporter
+    # 创建 id_exporter 项目的 systemd 服务
+    createProject id_exporter
 }
 
 # 功能:API注册节点

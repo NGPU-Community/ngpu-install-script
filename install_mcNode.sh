@@ -363,7 +363,7 @@ EOL
 envInit(){
     # 
     scriptsLog 1 "download project file"
-    downloadFile $softUrl/tools/ipolloML/ipvRunner.tar.gz "$home"  "ipvRunner.tar.gz" "progressTrue"
+    downloadFile $softUrl/tools/ngpuML/ipvRunner.tar.gz "$home"  "ipvRunner.tar.gz" "progressTrue"
 
     # 
     downloadFile $softUrl/tools/jq "$home/ipvRunner/Bin/"  "jq"

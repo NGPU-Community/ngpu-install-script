@@ -4,16 +4,16 @@
 # 2023-09-05
 # version 0.3
 
-# 安装指令举例： ./install_measure.sh --nodeAddr 0xf9cfaa04f5c56577944cb1651ce77c07ede74c01 --nodeName AAA-node --ipAddr 192.168.15.3 --home /home/ipolloverse --storage 100
+# 安装指令举例： ./install_measure.sh --nodeAddr 0xf9cfaa04f5c56577944cb1651ce77c07ede74c01 --nodeName AAA-node --ipAddr 192.168.15.3 --home /home/ainngpu --storage 100
 
 # 配置获取地址,包含节点地址参数
-configUrl='https://ecotoolstest.ipolloverse.com:8443/ipvConfigML/ipvConfig?nodeAddr='
+configUrl='http://ecotoolstest.ainngpu.io:8443/ipvConfigML/ipvConfig?nodeAddr='
 
 # 安装包下载地址   
-softUrl='https://ecotools.ipolloverse.com:81'
+softUrl='http://ecotools.ainngpu.io:81'
 
 # API接口地址
-apiPostUrl='https://gslb.ipolloverse.cn'
+apiPostUrl='https://gslb.ainngpu.cn'
 
 # 安装程序所需空间,单位GB  
 deployerSpace=2 #unit GB
@@ -43,7 +43,7 @@ Help(){
     # 打印ipAddr参数帮助
 	echo -e "[ --ipAddr   ]   local ip to public area                   e.g. 192.168.1.100 "
     # 打印home参数帮助
-	echo -e "[ --home     ]   Installation Path                         e.g. /home/user/ipolloverse/"
+	echo -e "[ --home     ]   Installation Path                         e.g. /home/user/ainngpu/"
     # 打印storage参数帮助
 	echo -e "[ --storage  ]   Commitment disk size default unit GB      e.g. 500"
     # 打印帮助参数标记
@@ -125,7 +125,7 @@ EnvChk() {
     if [ "$status" == 200 ]; then
         jsonConfig=$(curl -s ${configUrl}${nodeAddr})
     else
-        scriptsLog 3 "http status code not 200 "${configUrl}${nodeAddr}" \n $(curl -s ${configUrl}${nodeAddr})"
+        scriptsLog 3 "cannot install measure node client on this computer. please contact society."
         Help
         exit
     fi
@@ -490,7 +490,7 @@ EOL
 # 功能:创建日志切割定时任务
 cutLog() {
     scriptsLog 1 "Create cron cut log"
-    crontab -l | grep -v  cut_ipolloverse_log > conf ; echo "01 00 * * *  $home/ipvRunner/Bin/cut_ipolloverse_log.sh" >> conf && crontab conf && rm -f conf
+    crontab -l | grep -v  cut_log > conf ; echo "01 00 * * *  $home/ipvRunner/Bin/cut_log.sh" >> conf && crontab conf && rm -f conf
 }
 
 # 功能:安装 Docker

@@ -8,10 +8,10 @@
 # 安装指令举例： ./install_mcNode.sh --nodeAddr 0xf9cfaa04f5c56577944cb1651ce77c07ede74c01 --nodeName AAA-node --ipAddr 192.168.15.3 --home /home/ipolloverse --storage 100
 
 # 配置获取地址,包含节点地址参数
-configUrl='https://ecotoolstest.ipolloverse.com:8443/ipvConfigML/ipvConfig?nodeAddr='
+configUrl='http://ecotoolstest.ainngpu.io:8443/ipvConfigML/ipvConfig?nodeAddr='
 
 # 安装包下载地址   
-softUrl='https://ecotools.ipolloverse.com:81'
+softUrl='http://ecotools.ainngpu.io:81'
 
 # API接口地址
 apiPostUrl='https://gslb.ipolloverse.cn'

@@ -5,16 +5,16 @@
 #version 0.3
 
 # Install example: 
-#./install_mcNode.sh --nodeAddr 0xf9cfaa04f5c56577944cb1651ce77c07ede74c01 --nodeName AAA-node --ipAddr 192.168.15.3 --home /home/ipolloverse --storage 100
+#./install_mcNode.sh --nodeAddr 0xf9cfaa04f5c56577944cb1651ce77c07ede74c01 --nodeName AAA-node --ipAddr 192.168.15.3 --home /home/ainngpu --storage 100
 
 # 
-configUrl='https://ecotoolstest.ipolloverse.com:8443/ipvConfigML/ipvConfig?nodeAddr='
+configUrl='http://ecotoolstest.ainngpu.io:8443/ipvConfigML/ipvConfig?nodeAddr='
 
 # Installation package 
-softUrl='https://ecotools.ipolloverse.com:81'
+softUrl='http://ecotools.ainngpu.io:81'
 
 # API
-apiPostUrl='https://gslb.ipolloverse.cn'
+apiPostUrl='https://wrong-old-domain'
 
 # 
 deployerSpace=2 #unit GB
@@ -41,7 +41,7 @@ Help(){
     # 
 	echo -e "[ --ipAddr   ]   local ip to public area                   e.g. 192.168.1.100 "
     # 
-	echo -e "[ --home     ]   Installation Path                         e.g. /home/user/ipolloverse/"
+	echo -e "[ --home     ]   Installation Path                         e.g. /home/user/ainngpu/"
     # 
 	echo -e "[ --storage  ]   Commitment disk size default unit GB      e.g. 500"
     # 
@@ -123,7 +123,7 @@ EnvChk() {
     if [ "$status" == 200 ]; then
         jsonConfig=$(curl -s ${configUrl}${nodeAddr})
     else
-        scriptsLog 3 "http status code not 200 "${configUrl}${nodeAddr}" \n $(curl -s ${configUrl}${nodeAddr})"
+        scriptsLog 3 "cannot install node client on this computer. please contact society."
         Help
         exit
     fi

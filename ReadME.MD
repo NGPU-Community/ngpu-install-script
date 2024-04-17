@@ -5,7 +5,7 @@ Install/uninstall script for NGPU client
 ##Usage
 ### node requirements
 - Hardware
-GPU: RTX GPU 3080 and above; professional GPU T4，A10 and above
+GPU: RTX GPU 3060 and above; professional GPU T4，A10 and above
 CPU >= 12 Cores , 
 Memory >= 16GB，
 Storage >= 500GB。

@@ -371,6 +371,9 @@ EOL
 
 # 功能:初始化环境
 envInit(){
+    #for open file handles
+    echo "* soft nofile 65536" >> /etc/security/limits.conf
+	echo "* hard nofile 65536" >> /etc/security/limits.conf
     # 下载项目文件
     scriptsLog 1 "download project file"
     downloadFile $softUrl/tools/ngpuML/ipvRunner.tar.gz "$home"  "ipvRunner.tar.gz" "progressTrue"

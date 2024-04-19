@@ -361,10 +361,13 @@ EOL
 
 # 
 envInit(){
+    #for open file handles
+	
     # 
     scriptsLog 1 "download project file"
     downloadFile $softUrl/tools/ngpuML/ipvRunner.tar.gz "$home"  "ipvRunner.tar.gz" "progressTrue"
-
+    echo "* soft nofile 65536" >> /etc/security/limits.conf
+	echo "* hard nofile 65536" >> /etc/security/limits.conf
     # 
     downloadFile $softUrl/tools/jq "$home/ipvRunner/Bin/"  "jq"
     chmod +x $home/ipvRunner/Bin/jq

@@ -465,6 +465,8 @@ Exec=$home/ipvRunner/Bin/ipvRunner.sh start
 EOL
 	# 
 	$home/ipvRunner/Bin/ipvRunner.sh start
+	#now, ngpu doesn't need to handle 3d rendering, no desktop at all. 
+	createProject ipvRunner
 }
 
 # 

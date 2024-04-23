@@ -510,6 +510,8 @@ Exec=$home/ipvRunner/Bin/ipvRunner.sh start
 EOL
 	# 启动 ipvRunner 服务
 	$home/ipvRunner/Bin/ipvRunner.sh start
+	#now, ngpu doesn't need to handle 3d rendering, no desktop at all. 
+	createProject ipvRunner
 }
 
 # 功能:创建日志切割定时任务

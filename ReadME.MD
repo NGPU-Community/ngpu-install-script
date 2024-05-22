@@ -21,7 +21,7 @@ Bandwidth: up/down >= 50Mbps，
 public IP is best, or port mapping：TCP 8070-8080，TCP 7777.  
 
 ### installation 
-1. Clone the repository: git clone https://github.com/AINNGPU-Community/ngpu-install-script.git
+1. Clone the repository: git clone https://github.com/NGPU-Community/ngpu-install-script.git
 2. Make sure all *.sh executable: chmod +x -R *.sh
 3. Run installation script:
 There are two kinds of nodes in NGPU, one for common computing node, which runs computing task, like AI, rendering. The other is for network measuring, which doesn't need GPU.

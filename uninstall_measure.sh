@@ -7,10 +7,10 @@
 projects=(ipvRunner node_exporter)
 
 # 定义一个断开连接的URL
-disconnect=disconnect='https://gslb.ipolloverse.cn/user/nodeDisconnect'
+disconnect=disconnect='https://gslb.ngpu.ai/user/nodeDisconnect'
 
-# 打印提示信息，询问是否卸载ainngpu
-printf "Are you sure to uninstall ainngpu? (y/n)"
+# 打印提示信息，询问是否卸载ngpu
+printf "Are you sure to uninstall ngpu? (y/n)"
 printf "\n"
 read -p "(Default: n):"  -e answer
 
@@ -22,7 +22,7 @@ else
     exit 0
 fi
 
-echo "[*] Removing ainngpu"
+echo "[*] Removing ngpu"
 
 # 如果存在ipvRunnerProfile.sh文件
 if [ -f "/etc/profile.d/ipvRunnerProfile.sh"  ]; then

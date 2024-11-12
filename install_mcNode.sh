@@ -15,6 +15,7 @@ softUrl='http://ecotools.ngpu.ai:81'
 
 # API
 apiPostUrl='https://wrong-old-domain'
+gpuKUrl="https://test-gslb.ngpu.ai/user/getWeights"
 
 # 
 deployerSpace=2 #unit GB
@@ -494,6 +495,42 @@ nodeListen() {
     createProject nodeListen
 }
 
+checkGPUK() {
+
+	response=$(curl -s $gpuKUrl)
+    if [ $? -ne 0 ]; then
+      scriptsLog 3 "Unable to fetch data from gpuK API"
+      exit 1
+    fi
+
+    gpus_from_api_1=$(echo "$response" | $home/ipvRunner/Bin/jq -r '.gpuWeights[].gpu')
+    readarray -t gpus_from_api <<< $gpus_from_api_1
+    #scriptsLog 2 "gpus info: $gpus_from_api"
+
+    # Step 2: local GPU
+    #local_gpus=$(nvidia-smi -L)
+    readarray -t local_gpus <<< "$(nvidia-smi -L)"
+
+    # Step 3: local GPU has gpuKUrl return?
+    found_match=false
+    for gpu_line in "${local_gpus[@]}"; do
+            for api_gpu in "${gpus_from_api[@]}"; do
+                    if [[ $gpu_line == *"$api_gpu"* ]]; then
+                            found_match=true
+                            break 2
+                    fi
+            done
+    done
+    
+    # Step 4: output
+    if $found_match; then
+      scriptsLog 1 "found local gpu in gpuK interface. "
+    else
+      scriptsLog 3 "cannot found local gpu in gpuK interface. Please check the supported gpu list on official webpage."
+      exit 1
+    fi
+
+}
 
 NVIDIA() {
     scriptsLog 1 "start install NVIDIA && CUDA"
@@ -510,6 +547,8 @@ NVIDIA() {
         sudo apt-get install -y cuda-12.0
     fi
     scriptsLog 0 "NVIDIA && CUDA installed"
+	checkGPUK
+	
 }
 
 

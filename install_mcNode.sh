@@ -15,7 +15,7 @@ softUrl='http://ecotools.ngpu.ai:81'
 
 # API
 apiPostUrl='https://wrong-old-domain'
-gpuKUrl="https://test-gslb.ngpu.ai/user/getWeights"
+gpuKUrl="https://gslb.ngpu.ai/user/getWeights"
 
 # 
 deployerSpace=2 #unit GB
